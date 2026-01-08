@@ -54,7 +54,7 @@ const loginUser = async (req, res) => {
 
     res.cookie('token', token, {
       httpOnly: true,
-      secure: true,        // REQUIRED on Render
+      secure: true,        
       sameSite: 'none',    // REQUIRED for cross-origin
       maxAge: 7 * 24 * 60 * 60 * 1000
     })
