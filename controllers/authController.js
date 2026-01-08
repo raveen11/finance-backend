@@ -58,7 +58,7 @@ const loginUser = async (req, res) => {
       sameSite: 'none',    // REQUIRED for cross-origin
       maxAge: 7 * 24 * 60 * 60 * 1000
     })
-    console.log('ABCD----dd',res.cookie);
+    console.log('ABCD----dd',res, res.cookies.authToken);
 
     res.json({
       _id: user._id,
