@@ -8,11 +8,15 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors({
-  origin: 'http://localhost:3000', // EXACT origin, NOT '*'
-  credentials: true,               // allow cookies
+  origin: [
+    'http://localhost:3000',
+    'https://finance-dashboard-webapp.onrender.com' // 👈 your frontend
+  ],
+  credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+
 
 // Test route
 app.get('/', (req, res) => {
