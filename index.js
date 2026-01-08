@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'https://finance-dashboard-webapp.onrender.com' // 👈 your frontend
+    'https://ourfinance.vercel.app' // 👈 your frontend
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
