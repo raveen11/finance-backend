@@ -52,12 +52,12 @@ const loginUser = async (req, res) => {
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '30d' });
 
-    res.cookie('authToken', token, {
+    res.cookie('token', token, {
       httpOnly: true,
-      secure: false,     // ❗ false for localhost (NO HTTPS)
-      sameSite: 'lax',   // works for localhost
-      maxAge: 30 * 24 * 60 * 60 * 1000,
-    });
+      secure: true,        // REQUIRED on Render
+      sameSite: 'none',    // REQUIRED for cross-origin
+      maxAge: 7 * 24 * 60 * 60 * 1000
+    })
     console.log('ABCD----dd',res.cookie);
 
     res.json({
